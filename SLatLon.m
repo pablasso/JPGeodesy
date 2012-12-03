@@ -104,7 +104,7 @@
                              cos(dist)-sin(lat1)*sin(lat2));
   lon2 = fmod(lon2+3*M_PI, 2*M_PI) - M_PI; // normalise to -180..+180º
   
-  return [[[SLatLon alloc] initWithLat:SLL_TODEG(lat2) lon:SLL_TODEG(lon2)] autorelease];
+  return [[SLatLon alloc] initWithLat:SLL_TODEG(lat2) lon:SLL_TODEG(lon2)];
 }
 
 @end
