@@ -3,14 +3,29 @@ JPGeodesy
 
 An Objective-C port of the Latitude/longitude spherical geodesy formulae & scripts by Chris Veness. Read more about it here: [http://www.movable-type.co.uk/scripts/latlong.html](http://www.movable-type.co.uk/scripts/latlong.html)
 
-The port is not complete yet though. I've only ported those that are currently of use to me. Feel free to fork and add more.
+This is only a partial port. Feel free to fork and add more.
 
-This is a fork of [BJ Basañes](https://github.com/shiki) original [SLatLong](https://github.com/shiki/SLatLon).
+This is a fork of [BJ Basañes](https://github.com/shiki) original [SLatLong](https://github.com/shiki/SLatLon). I wanted a different coding style, hence, this repo.
 
-### Example
+### Examples
 
-Finding the destination point based on a origin, distance, radius (from earth) and
-bearing (direction).
+* Get the distance from one point to another with the earth radius.
+
+```objective-c
+JPCoordinate pointA = {37.30, -121.91};
+JPCoordinate pointB = {57.30, -120.91};
+double distance = [JPGeodesy distanceFromPoint:pointA toPoint:pointB radius:6371];
+```
+
+* Find the bearing (direction) between two points
+
+```objective-c
+JPCoordinate pointA = {37.30, -121.91};
+JPCoordinate pointB = {57.30, -120.91};
+double bearing = [JPGeodesy bearingFromPoint:pointA toPoint:pointB];
+```
+
+* Finding the destination point based on a origin, distance, radius (from earth) and bearing (direction).
 
 ``` objective-c
 JPCoordinate pointA = {37.30, -121.91};
@@ -20,7 +35,7 @@ NSLog("latitude:%f longitude:%f", pointB.latitude, pointB.longitude);
 
 ### Install
 
-You can just drag the files, but you get extra points for being awesome and using [CocoaPods](http://cocoapods.org/). 
+You can just drag the source files, but you get extra points for being awesome and using [CocoaPods](http://cocoapods.org/). 
 
 ### License
 
