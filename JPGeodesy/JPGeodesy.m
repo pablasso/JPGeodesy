@@ -3,12 +3,18 @@
 
 @implementation JPGeodesy
 
+NSInteger const EARTH_RADIUS = 6371;
+
 + (double)degreesWithRadians:(double)radians {
     return radians * 180.0 / M_PI;
 }
 
 + (double)radiansWithDegrees:(double)degrees {
     return degrees * M_PI / 180.0;
+}
+
++ (double)distanceFromPoint:(JPCoordinate)pointA toPoint:(JPCoordinate)pointB {
+    return [JPGeodesy distanceFromPoint:pointA toPoint:pointB radius:EARTH_RADIUS];
 }
 
 + (double)distanceFromPoint:(JPCoordinate)pointA toPoint:(JPCoordinate)pointB radius:(double)radius {
@@ -36,6 +42,10 @@
     double bearing = atan2(y, x);
     
     return fmod([JPGeodesy degreesWithRadians:bearing]+360, 360);
+}
+
++ (JPCoordinate)destinationPointFromPoint:(JPCoordinate)point withBearing:(double)bearing distance:(double)distance {
+    return [JPGeodesy destinationPointFromPoint:point withBearing:bearing distance:distance radius:EARTH_RADIUS];
 }
 
 + (JPCoordinate)destinationPointFromPoint:(JPCoordinate)point withBearing:(double)bearing distance:(double)distance radius:(double)radius {

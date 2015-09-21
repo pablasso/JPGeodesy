@@ -9,8 +9,11 @@ typedef struct JPCoordinate {
 
 + (double)degreesWithRadians:(double)radians;
 + (double)radiansWithDegrees:(double)degrees;
+
++ (double)distanceFromPoint:(JPCoordinate)pointA toPoint:(JPCoordinate)pointB;
 + (double)distanceFromPoint:(JPCoordinate)pointA toPoint:(JPCoordinate)pointB radius:(double)radius;
 + (double)bearingFromPoint:(JPCoordinate)pointA toPoint:(JPCoordinate)pointB;
++ (JPCoordinate)destinationPointFromPoint:(JPCoordinate)point withBearing:(double)bearing distance:(double)distance;
 + (JPCoordinate)destinationPointFromPoint:(JPCoordinate)point withBearing:(double)bearing distance:(double)distance radius:(double)radius;
     
 @end
